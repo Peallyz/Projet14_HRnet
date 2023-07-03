@@ -10,7 +10,6 @@ const Home = () => {
         <Link destination="/employee-list" content="View Current Employees" />
         <h2>Create Employee</h2>
         <Form />
-        <button className="link">Save</button>
       </main>
     </>
   );
