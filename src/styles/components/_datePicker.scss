@@ -1,0 +1,10 @@
+.react-datepicker-wrapper {
+  input {
+    width: 100%;
+  }
+}
+.react-datepicker__tab-loop {
+  .react-datepicker__triangle {
+    transform: translate(145px, 1px) !important;
+  }
+}
