@@ -28,7 +28,7 @@ const Form = () => {
 
   const HandleSubmit = (e) => {
     e.preventDefault();
-    console.log(employee);
+
     if (
       employee.firstName === "" ||
       employee.lastName === "" ||
@@ -170,7 +170,7 @@ const Form = () => {
                 primary: "#37a57e",
               },
             })}
-            onChange={(e) => setEmployee({ ...employee, state: e.value })}
+            onChange={(e) => setEmployee({ ...employee, department: e.value })}
           />
         </div>
         <button className="link" onClick={HandleSubmit}>
