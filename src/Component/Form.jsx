@@ -1,9 +1,12 @@
 import DatePicker from "react-datepicker";
-import { departments } from "../data/departments";
-import { states } from "../data/states";
+import { departments } from "../utils/data/departments";
+import { states } from "../utils/data/states";
 import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import CustomModal from "custom-modal-component/dist/CustomModal";
+import Select from "react-select";
+import { useDispatch } from "react-redux";
+import { addEmployee } from "../utils/slice/employee.slice";
 
 const Form = () => {
   const [dateOfBirth, setSDateOfBirth] = useState(new Date());
@@ -12,30 +15,53 @@ const Form = () => {
   const [employee, setEmployee] = useState({
     firstName: "",
     lastName: "",
-    startDate: startDate,
-    dateOfBirth: dateOfBirth,
+    startDate: new Date(startDate).getTime(),
+    dateOfBirth: new Date(dateOfBirth).getTime(),
     street: "",
     city: "",
-    state: states[0].abbreviation,
+    state: states[0].value,
     zipCode: "",
-    department: departments[0],
+    department: departments[0].value,
   });
+
+  const dispatch = useDispatch();
 
   const HandleSubmit = (e) => {
     e.preventDefault();
     console.log(employee);
-    setShowCustomModal(true);
+    if (
+      employee.firstName === "" ||
+      employee.lastName === "" ||
+      employee.street === "" ||
+      employee.city === "" ||
+      employee.zipCode === ""
+    ) {
+      setShowErrorModal(true);
+      return;
+    }
+
+    dispatch(addEmployee(employee));
+    setShowCreationModal(true);
   };
 
-  const [showCustomModal, setShowCustomModal] = useState(false);
+  const [showCreationModal, setShowCreationModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
   return (
     <>
       <CustomModal
-        showCustomModal={showCustomModal}
-        setShowCustomModal={setShowCustomModal}
+        showCustomModal={showCreationModal}
+        setShowCustomModal={setShowCreationModal}
       >
         <h2>A new User has been created!</h2>
+      </CustomModal>
+      <CustomModal
+        showCustomModal={showErrorModal}
+        setShowCustomModal={setShowErrorModal}
+        backgroundColor={"#bf0000"}
+        color={"#f1f1f1"}
+      >
+        <h2>Please fill all the fields before saving </h2>
       </CustomModal>
       <form action="#" id="create-employee">
         <div className="user__data">
@@ -60,18 +86,23 @@ const Form = () => {
           <label htmlFor="date-of-birth">Date of Birth</label>
           <DatePicker
             selected={startDate}
+            maxDate={new Date()}
             onChange={(date) => {
               setStartDate(date);
-              setEmployee({ ...employee, startDate: date });
+              setEmployee({ ...employee, startDate: new Date(date).getTime() });
             }}
           />
 
           <label htmlFor="start-date">Start Date</label>
           <DatePicker
             selected={dateOfBirth}
+            maxDate={new Date()}
             onChange={(date) => {
               setSDateOfBirth(date);
-              setEmployee({ ...employee, dateOfBirth: date });
+              setEmployee({
+                ...employee,
+                dateOfBirth: new Date(date).getTime(),
+              });
             }}
           />
         </div>
@@ -96,19 +127,23 @@ const Form = () => {
           />
 
           <label htmlFor="state">State</label>
-          <select
-            name="state"
+
+          <Select
             id="state"
-            onChange={(e) =>
-              setEmployee({ ...employee, state: e.target.value })
-            }
-          >
-            {states.map((state) => (
-              <option key={state.name} value={state.abbreviation}>
-                {state.name}
-              </option>
-            ))}
-          </select>
+            className="select"
+            defaultValue={states[0]}
+            options={states}
+            theme={(theme) => ({
+              ...theme,
+              borderRadius: 5,
+              colors: {
+                ...theme.colors,
+                primary25: "#c5eddf",
+                primary: "#37a57e",
+              },
+            })}
+            onChange={(e) => setEmployee({ ...employee, state: e.value })}
+          />
 
           <label htmlFor="zip-code">Zip Code</label>
           <input
@@ -121,19 +156,22 @@ const Form = () => {
         </fieldset>
         <div className="departement">
           <label htmlFor="department">Department</label>
-          <select
-            name="department"
+          <Select
             id="department"
-            onChange={(e) =>
-              setEmployee({ ...employee, department: e.target.value })
-            }
-          >
-            {departments.map((department) => (
-              <option key={department} value={department}>
-                {department}
-              </option>
-            ))}
-          </select>
+            className="select"
+            defaultValue={departments[0]}
+            options={departments}
+            theme={(theme) => ({
+              ...theme,
+              borderRadius: 5,
+              colors: {
+                ...theme.colors,
+                primary25: "#c5eddf",
+                primary: "#37a57e",
+              },
+            })}
+            onChange={(e) => setEmployee({ ...employee, state: e.value })}
+          />
         </div>
         <button className="link" onClick={HandleSubmit}>
           Save
