@@ -48,19 +48,20 @@ const Pagination = ({
       >
         {">>"}
       </button>
+      <div className="pagination__description">
+        <span>
+          {totalPages === 0 ? totalPages : currentPage} / {totalPages}{" "}
+          {totalPages > 1 ? "Pages" : "Page"}{" "}
+        </span>
 
-      <span>
-        {totalPages === 0 ? totalPages : currentPage} / {totalPages}{" "}
-        {totalPages > 1 ? "Pages" : "Page"}{" "}
-      </span>
-
-      <span>
-        {currentPage * numberPerPage - numberPerPage + 1} -{" "}
-        {currentPage * numberPerPage > totalEmployees
-          ? totalEmployees
-          : currentPage * numberPerPage}{" "}
-        of {totalEmployees} {totalEmployees > 1 ? "employees" : "employee"}
-      </span>
+        <span>
+          {currentPage * numberPerPage - numberPerPage + 1} -{" "}
+          {currentPage * numberPerPage > totalEmployees
+            ? totalEmployees
+            : currentPage * numberPerPage}{" "}
+          of {totalEmployees} {totalEmployees > 1 ? "employees" : "employee"}
+        </span>
+      </div>
     </div>
   );
 };
