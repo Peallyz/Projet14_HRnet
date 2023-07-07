@@ -1,14 +1,21 @@
+import { useDispatch } from "react-redux";
 import Header from "../Component/Header";
 import Link from "../Component/Link";
-import Table from "../Component/Table";
+import Table from "../Component/table";
+import { populateStore } from "../utils/slice/employee.slice";
 
 const EmployeeList = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <Header title="Current Employees" />
       <main>
-        <div id="employee-div" className="container">
+        <div className="button__container">
           <Link destination="/" content="Retour à l'acceuil" />
+          <button className="link" onClick={() => dispatch(populateStore())}>
+            Populate Store
+          </button>
         </div>
         <Table />
       </main>
