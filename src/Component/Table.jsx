@@ -76,11 +76,14 @@ const Table = () => {
               currentPage * numberPerPage
             )
             .map((user) =>
-              Object.keys(user).map((key) => (
-                <div className="table__content table__body" key={uuidv4()}>
-                  <span>{user[key]}</span>
-                </div>
-              ))
+              employeesKeys.map(
+                (key) =>
+                  key !== "id" && (
+                    <div className="table__content table__body" key={uuidv4()}>
+                      <span>{user[key]}</span>
+                    </div>
+                  )
+              )
             )
         ) : (
           <div className="table__content--no-employee">
