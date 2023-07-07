@@ -49,51 +49,62 @@ const Table = () => {
           filteredEmployees={filteredEmployees}
         />
       </div>
-      <table className="table">
-        <thead>
-          <tr>
-            {employeesKeys.map((key) => (
-              <th
-                className="table__content table__head"
-                key={key}
-                onClick={() =>
-                  setFilter(
-                    filter.type === key
-                      ? { ...filter, isDesc: !filter.isDesc }
-                      : { ...filter, type: key, isDesc: true }
-                  )
-                }
-              >
-                {service.formatKey(key)}
-              </th>
-            ))}
-          </tr>
-        </thead>
-
-        {filteredEmployees.length > 0 ? (
-          filteredEmployees
-            .slice(
-              (currentPage - 1) * numberPerPage,
-              currentPage * numberPerPage
-            )
-            .map((user) => (
-              <tr key={user.id}>
-                {Object.keys(filteredEmployees[0]).map(
-                  (key) =>
-                    key !== "id" && (
-                      <td className="table__content table__body" key={uuidv4()}>
-                        <span>{user[key]}</span>
-                      </td>
+      <div className="table__wrapper">
+        <table className="table">
+          <thead>
+            <tr>
+              {employeesKeys.map((key) => (
+                <th
+                  className="table__content table__head"
+                  key={key}
+                  onClick={() =>
+                    setFilter(
+                      filter.type === key
+                        ? { ...filter, isDesc: !filter.isDesc }
+                        : { ...filter, type: key, isDesc: true }
                     )
-                )}
+                  }
+                >
+                  {service.formatKey(key)}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {filteredEmployees.length > 0 ? (
+              filteredEmployees
+                .slice(
+                  (currentPage - 1) * numberPerPage,
+                  currentPage * numberPerPage
+                )
+                .map((user) => (
+                  <tr key={user.id}>
+                    {employeesKeys.map(
+                      (key) =>
+                        key !== "id" && (
+                          <td
+                            className="table__content table__body"
+                            key={uuidv4()}
+                          >
+                            <span>{user[key]}</span>
+                          </td>
+                        )
+                    )}
+                  </tr>
+                ))
+            ) : (
+              <tr>
+                <td
+                  colSpan={employeesKeys.length}
+                  className="table__content--no-employee"
+                >
+                  <span>No employees</span>
+                </td>
               </tr>
-            ))
-        ) : (
-          <div className="table__content--no-employee">
-            <span>No employees</span>
-          </div>
-        )}
-      </table>
+            )}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };
