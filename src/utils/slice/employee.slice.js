@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
+import mockedData from "../data/mockedData";
 
 const initialState = [];
 
@@ -11,11 +12,12 @@ export const employeeSlice = createSlice({
     addEmployee: (state, { payload }) => {
       state.push({ ...payload, id: uuidv4() });
     },
-    deleteEmplyee: (state, { payload }) => {
-      state.filter((employee) => employee.id !== payload);
+    populateStore: (state) => {
+      const toAdd = mockedData.map((e) => ({ ...e, id: uuidv4() }));
+      state.push(...toAdd);
     },
   },
 });
 
-export const { addEmployee } = employeeSlice.actions;
+export const { addEmployee, populateStore } = employeeSlice.actions;
 export default employeeSlice.reducer;
