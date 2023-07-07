@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import Header from "../Component/Header";
 import Link from "../Component/Link";
-import Table from "../Component/table";
+import Table from "../Component/Table";
 import { populateStore } from "../utils/slice/employee.slice";
 
 const EmployeeList = () => {
