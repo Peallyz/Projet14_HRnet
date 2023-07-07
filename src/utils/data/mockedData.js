@@ -1,4 +1,4 @@
-const mockedDate = [
+const mockedData = [
   {
     city: "Los Santos",
     dateOfBirth: 1685300078000,
@@ -496,4 +496,4 @@ const mockedDate = [
   },
 ];
 
-export default mockedDate;
+export default mockedData;
