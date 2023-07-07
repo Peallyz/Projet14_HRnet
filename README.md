@@ -1,6 +1,6 @@
 # HRnet by WealthHealth
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/12345678-1234-1234-1234-1234567890ab/deploy-status)](https://app.netlify.com/sites/hrnet-wealthhealth/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4c5ac129-458c-460e-ae42-3dd40e2154a5/deploy-status)](https://app.netlify.com/sites/hrnet-wealthhealth/deploys)
 
 Hrnet is a web application designed to identify employees and manage HR-related tasks. It provides an intuitive interface for HR professionals to streamline their processes and improve efficiency.
 
