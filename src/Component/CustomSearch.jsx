@@ -6,6 +6,7 @@ const CustomSearch = ({
   setNumberPerPage,
   filter,
   setFilter,
+  setCurrentPage,
 }) => {
   return (
     <form action="#">
@@ -27,7 +28,10 @@ const CustomSearch = ({
       <input
         type="search"
         placeholder="Search"
-        onChange={(e) => setFilter({ ...filter, text: e.target.value })}
+        onChange={(e) => {
+          setFilter({ ...filter, text: e.target.value });
+          setCurrentPage(1);
+        }}
       />
     </form>
   );
@@ -38,6 +42,7 @@ CustomSearch.propTypes = {
   setNumberPerPage: PropTypes.func.isRequired,
   filter: PropTypes.object.isRequired,
   setFilter: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
 };
 
 export default CustomSearch;
