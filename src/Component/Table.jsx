@@ -49,25 +49,26 @@ const Table = () => {
           filteredEmployees={filteredEmployees}
         />
       </div>
-      <div
-        className="table"
-        style={{ gridTemplateColumns: `repeat(${employeesKeys.length}, auto)` }}
-      >
-        {employeesKeys.map((key) => (
-          <div
-            className="table__content table__head"
-            key={key}
-            onClick={() =>
-              setFilter(
-                filter.type === key
-                  ? { ...filter, isDesc: !filter.isDesc }
-                  : { ...filter, type: key, isDesc: true }
-              )
-            }
-          >
-            <span>{service.formatKey(key)}</span>
-          </div>
-        ))}
+      <table className="table">
+        <thead>
+          <tr>
+            {employeesKeys.map((key) => (
+              <th
+                className="table__content table__head"
+                key={key}
+                onClick={() =>
+                  setFilter(
+                    filter.type === key
+                      ? { ...filter, isDesc: !filter.isDesc }
+                      : { ...filter, type: key, isDesc: true }
+                  )
+                }
+              >
+                {service.formatKey(key)}
+              </th>
+            ))}
+          </tr>
+        </thead>
 
         {filteredEmployees.length > 0 ? (
           filteredEmployees
@@ -75,22 +76,24 @@ const Table = () => {
               (currentPage - 1) * numberPerPage,
               currentPage * numberPerPage
             )
-            .map((user) =>
-              employeesKeys.map(
-                (key) =>
-                  key !== "id" && (
-                    <div className="table__content table__body" key={uuidv4()}>
-                      <span>{user[key]}</span>
-                    </div>
-                  )
-              )
-            )
+            .map((user) => (
+              <tr key={user.id}>
+                {Object.keys(filteredEmployees[0]).map(
+                  (key) =>
+                    key !== "id" && (
+                      <td className="table__content table__body" key={uuidv4()}>
+                        <span>{user[key]}</span>
+                      </td>
+                    )
+                )}
+              </tr>
+            ))
         ) : (
           <div className="table__content--no-employee">
             <span>No employees</span>
           </div>
         )}
-      </div>
+      </table>
     </>
   );
 };
