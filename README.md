@@ -58,18 +58,14 @@ or
 
 The following dependencies are used in this project:
 
-[![Redux Toolkit](https://img.shields.io/badge/%40reduxjs%2Ftoolkit-1.9.5-brightgreen)](https://redux-toolkit.js.org/)
-[![Custom Modal Component](https://img.shields.io/badge/custom--modal--component-1.0.0-brightgreen)](https://www.npmjs.com/package/custom-modal-component)
-[![Prop Types](https://img.shields.io/badge/prop--types-15.8.1-brightgreen)](https://www.npmjs.com/package/prop-types)
-[![React](https://img.shields.io/badge/react-18.2.0-brightgreen)](https://reactjs.org/)
-[![React Datepicker](https://img.shields.io/badge/react--datepicker-4.15.0-brightgreen)](https://www.npmjs.com/package/react-datepicker)
-[![React DOM](https://img.shields.io/badge/react--dom-18.2.0-brightgreen)](https://reactjs.org/docs/react-dom.html)
-[![React Redux](https://img.shields.io/badge/react--redux-8.1.1-brightgreen)](https://react-redux.js.org/)
-[![React Router DOM](https://img.shields.io/badge/react--router--dom-6.14.1-brightgreen)](https://reactrouter.com/web/guides/quick-start)
-[![React Select](https://img.shields.io/badge/react--select-5.7.3-brightgreen)](https://www.npmjs.com/package/react-select)
-[![Sass](https://img.shields.io/badge/sass-1.63.6-brightgreen)](https://sass-lang.com/)
-[![UUID](https://img.shields.io/badge/uuid-9.0.0-brightgreen)](https://www.npmjs.com/package/uuid)
-
-```
-
-```
+- [![Redux Toolkit](https://img.shields.io/badge/%40reduxjs%2Ftoolkit-1.9.5-brightgreen)](https://redux-toolkit.js.org/)
+- [![Custom Modal Component](https://img.shields.io/badge/custom--modal--component-1.0.0-brightgreen)](https://www.npmjs.com/package/custom-modal-component)
+- [![Prop Types](https://img.shields.io/badge/prop--types-15.8.1-brightgreen)](https://www.npmjs.com/package/prop-types)
+- [![React](https://img.shields.io/badge/react-18.2.0-brightgreen)](https://reactjs.org/)
+- [![React Datepicker](https://img.shields.io/badge/react--datepicker-4.15.0-brightgreen)](https://www.npmjs.com/package/react-datepicker)
+- [![React DOM](https://img.shields.io/badge/react--dom-18.2.0-brightgreen)](https://reactjs.org/docs/react-dom.html)
+- [![React Redux](https://img.shields.io/badge/react--redux-8.1.1-brightgreen)](https://react-redux.js.org/)
+- [![React Router DOM](https://img.shields.io/badge/react--router--dom-6.14.1-brightgreen)](https://reactrouter.com/web/guides/quick-start)
+- [![React Select](https://img.shields.io/badge/react--select-5.7.3-brightgreen)](https://www.npmjs.com/package/react-select)
+- [![Sass](https://img.shields.io/badge/sass-1.63.6-brightgreen)](https://sass-lang.com/)
+- [![UUID](https://img.shields.io/badge/uuid-9.0.0-brightgreen)](https://www.npmjs.com/package/uuid)
