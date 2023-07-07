@@ -1,21 +1,20 @@
 import { useSelector } from "react-redux";
 import employeeTemplate from "../utils/data/employeeTemplate";
 import { useState, useEffect } from "react";
-import EmployeeSortAndFormatService from "../utils/services/employee";
 import { v4 as uuidv4 } from "uuid";
 import Pagination from "./Pagination";
 import CustomSearch from "./CustomSearch";
+import { formatDate, formatKey } from "../utils/services/format";
+import { sortEmployees } from "../utils/services/sortAndFilter";
 
 const Table = () => {
-  const service = new EmployeeSortAndFormatService();
-
   const employees = useSelector((state) => state.employee);
 
   const employeesKeys = Object.keys(employeeTemplate);
 
   const [filter, setFilter] = useState({ type: null, isDesc: true, text: "" });
   const [filteredEmployees, setFilteredEmployees] = useState(
-    service.formatDate(employees)
+    formatDate(employees)
   );
 
   const [numberPerPage, setNumberPerPage] = useState(10);
@@ -25,10 +24,10 @@ const Table = () => {
     if (filter.type || filter.text) {
       const { type, isDesc, text } = filter;
       setFilteredEmployees(
-        service.sortEmployees(employees, type, isDesc, text.toLowerCase())
+        sortEmployees(employees, type, isDesc, text.toLowerCase())
       );
     } else {
-      setFilteredEmployees(service.formatDate(employees));
+      setFilteredEmployees(formatDate(employees));
     }
   }, [filter, employees]);
 
@@ -65,7 +64,7 @@ const Table = () => {
                     )
                   }
                 >
-                  {service.formatKey(key)}
+                  {formatKey(key)}
                 </th>
               ))}
             </tr>
