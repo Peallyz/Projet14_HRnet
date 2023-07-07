@@ -4,11 +4,13 @@ $black: #171717;
 
 @import "./pages/home";
 @import "./pages/error";
+@import "./pages/employeeList";
 @import "./components/link";
 @import "./components/header";
 @import "./components/form";
 @import "./components/datePicker";
 @import "./components/table";
+@import "./components/table-tools";
 
 *,
 ::before,
