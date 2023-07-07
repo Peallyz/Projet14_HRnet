@@ -34,7 +34,9 @@ const Form = () => {
       employee.lastName === "" ||
       employee.street === "" ||
       employee.city === "" ||
-      employee.zipCode === ""
+      employee.zipCode === "" ||
+      employee.dateOfBirth === "" ||
+      employee.startDate === ""
     ) {
       setShowErrorModal(true);
       return;
