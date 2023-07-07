@@ -10,11 +10,11 @@ export const employeeSlice = createSlice({
   // Reducers are functions that take the current state and an action object, and then return a new state.
   reducers: {
     addEmployee: (state, { payload }) => {
-      state.push({ ...payload, id: uuidv4() });
+      state.unshift({ ...payload, id: uuidv4() });
     },
     populateStore: (state) => {
       mockedData.forEach((employee) => {
-        state.push({ ...employee, id: uuidv4() });
+        state.unshift({ ...employee, id: uuidv4() });
       });
     },
   },
