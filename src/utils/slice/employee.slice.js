@@ -13,8 +13,9 @@ export const employeeSlice = createSlice({
       state.push({ ...payload, id: uuidv4() });
     },
     populateStore: (state) => {
-      const toAdd = mockedData.map((e) => ({ ...e, id: uuidv4() }));
-      state.push(...toAdd);
+      mockedData.forEach((employee) => {
+        state.push({ ...employee, id: uuidv4() });
+      });
     },
   },
 });
