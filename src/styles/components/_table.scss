@@ -1,0 +1,38 @@
+.table {
+  display: grid;
+  grid-auto-rows: min-content;
+  font-size: 1.4rem;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #1e5a45;
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.372);
+  margin-top: 20px;
+
+  &__head {
+    cursor: pointer;
+    color: white;
+    background-color: #37a57e;
+    span {
+      pointer-events: none;
+    }
+  }
+  &__body {
+    color: white;
+    background-color: #82a89b8d;
+    &:nth-child(2n + 2) {
+      background-color: #e3e3e3;
+      color: $black;
+    }
+  }
+
+  &__content {
+    padding: 8px 15px;
+    text-align: left;
+    max-width: 140px;
+    &--no-employee {
+      grid-column: 1 / -1;
+      text-align: center;
+    }
+  }
+}
