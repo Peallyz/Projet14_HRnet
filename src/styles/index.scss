@@ -49,3 +49,12 @@ p,
 a {
   font-size: 1.6rem;
 }
+@media screen and (max-width: 900px) {
+  h1 {
+    font-size: 3rem;
+  }
+  p,
+  a {
+    font-size: 1.2rem;
+  }
+}

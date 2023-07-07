@@ -27,6 +27,7 @@
     button {
       width: 40px;
       height: 40px;
+      line-height: 40px;
       border-radius: 10px;
       background-color: #f1f1f1;
       outline: none;
@@ -42,6 +43,28 @@
     &__description {
       display: flex;
       flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    font-size: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    form {
+      gap: 5px;
+      select {
+        width: 40px;
+      }
+    }
+    .pagination {
+      align-items: flex-end;
+      button {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 5px;
+      }
     }
   }
 }
