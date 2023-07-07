@@ -1,8 +1,6 @@
 import { useSelector } from "react-redux";
-
 import employeeTemplate from "../utils/data/employeeTemplate";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import EmployeeSortAndFormatService from "../utils/services/employee";
 import { v4 as uuidv4 } from "uuid";
 import Pagination from "./Pagination";
@@ -15,11 +13,7 @@ const Table = () => {
 
   const employeesKeys = Object.keys(employeeTemplate);
 
-  const [filter, setFilter] = useState({
-    type: null,
-    isDesc: true,
-    text: "",
-  });
+  const [filter, setFilter] = useState({ type: null, isDesc: true, text: "" });
   const [filteredEmployees, setFilteredEmployees] = useState(
     service.formatDate(employees)
   );
@@ -29,18 +23,14 @@ const Table = () => {
 
   useEffect(() => {
     if (filter.type || filter.text) {
+      const { type, isDesc, text } = filter;
       setFilteredEmployees(
-        service.sortEmployees(
-          employees,
-          filter.type,
-          filter.isDesc,
-          filter.text.toLowerCase()
-        )
+        service.sortEmployees(employees, type, isDesc, text.toLowerCase())
       );
     } else {
       setFilteredEmployees(service.formatDate(employees));
     }
-  }, [filter]);
+  }, [filter, employees]);
 
   return (
     <>
@@ -50,6 +40,7 @@ const Table = () => {
           setNumberPerPage={setNumberPerPage}
           filter={filter}
           setFilter={setFilter}
+          setCurrentPage={setCurrentPage}
         />
         <Pagination
           numberPerPage={numberPerPage}
@@ -85,7 +76,7 @@ const Table = () => {
               currentPage * numberPerPage
             )
             .map((user) =>
-              employeesKeys.map((key) => (
+              Object.keys(user).map((key) => (
                 <div className="table__content table__body" key={uuidv4()}>
                   <span>{user[key]}</span>
                 </div>
