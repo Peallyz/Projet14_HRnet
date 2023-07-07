@@ -9,8 +9,8 @@ dependencies:
     specifier: ^1.9.5
     version: 1.9.5(react-redux@8.1.1)(react@18.2.0)
   custom-modal-component:
-    specifier: ^1.0.0
-    version: 1.0.0
+    specifier: ^1.0.1
+    version: 1.0.1
   prop-types:
     specifier: ^15.8.1
     version: 15.8.1
@@ -1036,8 +1036,8 @@ packages:
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
 
-  /custom-modal-component@1.0.0:
-    resolution: {integrity: sha512-miXasFoYhLB0Ql0djtSyP8ClNsO3gjGKghCy8ATAQ6sKwvuzCBlYw3E5SIp/KVVWIN/bXhiHqPL0G2aHShNLkQ==}
+  /custom-modal-component@1.0.1:
+    resolution: {integrity: sha512-KhWzrqbRHMsXHPk19R6PQdSB59wGchUmHegX4iEyHOYevvzJc7yFXRNr65LLeRmRISMxx/6Mr7ZYYjlQ+WXUfQ==}
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)

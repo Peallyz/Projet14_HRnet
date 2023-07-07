@@ -1,7 +1,7 @@
 {
   "name": "projet14-hrnet",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
-    "custom-modal-component": "^1.0.0",
+    "custom-modal-component": "^1.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-datepicker": "^4.15.0",
